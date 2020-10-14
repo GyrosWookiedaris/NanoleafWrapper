@@ -28,61 +28,61 @@ print(result)
 The wrapper returns all data as json.
 
 ## Functions
-####get_all_controller_data
+#### get_all_controller_data
 Returns all controller data.
 
-####get_status
+#### get_status
 Returns the current on/off state.
 
-####set_status
+#### set_status
 Set the status to on or off. Expects a string.
 ```
 nano.set_status("on")
 ```
 
-####get_brightness
+#### get_brightness
 Returns the current brightness.
 
-####set_brightness
+#### set_brightness
 Set the brightness. Expects an int from 0 to 100.
 ```
 nano.set_brightness(100)
 ```
 
-####get_color
+#### get_color
 Returns the current color.
 
-####set_color
+#### set_color
 Set the color as hue value. Expects an int from 0 to 360.
 ```
 nano.set_color(120)
 ```
 
-####get_saturation
+#### get_saturation
 Returns the saturation.
 
-####set_saturation
+#### set_saturation
 Set the saturation. Expects an int from 0 to 100.
 ```
 nano.set_saturation(25)
 ```
 
-####get_ct
+#### get_ct
 Returns the color temperature.
 
-####set_ct
+#### set_ct
 Set the color temperature. Expects an int from 1200 to 6000 (uses Kelvin).
 
-####get_colormode
+#### get_colormode
 Returns the current colormode.
 
-####get_current_scene
+#### get_current_scene
 Returns the current scene.
 
-####get_scenes
+#### get_scenes
 Returns all scenes.
 
-####set_scene
+#### set_scene
 Set a scene. Expects the name of the scene as string.
 ```
 nano.set_scene("Fireplace")
