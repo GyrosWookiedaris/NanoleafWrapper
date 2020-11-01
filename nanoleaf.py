@@ -35,17 +35,17 @@ class Nanoleaf:
     def __init__(self):
         ip = config["ip"]
         token = config["token"]
-        self.baseurl = f"http://{ip}:16021"
+        self.baseurl = f"http://{ip}:16021/api/v1/{self.token}"
         self.token = token
 
     def get_all_controller_info(self):
-        addurl = f"/api/v1/{self.token}/"
+        addurl = "/"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def get_status(self):
-        addurl = f"/api/v1/{self.token}/state/on"
+        addurl = "/state/on"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
@@ -55,7 +55,7 @@ class Nanoleaf:
             state = True
         else:
             state = False
-        addurl = f"/api/v1/{self.token}/state"
+        addurl = "/state"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
@@ -69,13 +69,13 @@ class Nanoleaf:
         return json.loads(result.text)
 
     def get_brightness(self):
-        addurl = f"/api/v1/{self.token}/state/brightness"
+        addurl = "/state/brightness"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def set_brightness(self, brightness, duration=None):
-        addurl = f"/api/v1/{self.token}/state"
+        addurl = "/state"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
@@ -97,13 +97,13 @@ class Nanoleaf:
         return json.loads(result.text)
 
     def get_color(self):
-        addurl = f"/api/v1/{self.token}/state/hue"
+        addurl = "/state/hue"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def set_color(self, color):
-        addurl = f"/api/v1/{self.token}/state"
+        addurl = "/state"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
@@ -117,13 +117,13 @@ class Nanoleaf:
         return json.loads(result.text)
 
     def get_saturation(self):
-        addurl = f"/api/v1/{self.token}/state/sat"
+        addurl = "/state/sat"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def set_saturation(self, saturation):
-        addurl = f"/api/v1/{self.token}/state/sat"
+        addurl = "/state/sat"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
@@ -137,13 +137,13 @@ class Nanoleaf:
         return json.loads(result.text)
 
     def get_ct(self):
-        addurl = f"/api/v1/{self.token}/state/ct"
+        addurl = "/state/ct"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def set_ct(self, ct):
-        addurl = f"/api/v1/{self.token}/state"
+        addurl = "/state"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
@@ -157,26 +157,26 @@ class Nanoleaf:
         return json.loads(result.text)
 
     def get_colormode(self):
-        addurl = f"/api/v1/{self.token}/state/colorMode"
+        addurl = "/state/colorMode"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def get_current_scene(self):
-        addurl = f"/api/v1/{self.token}/effects/select"
+        addurl = "/effects/select"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def get_scenes(self):
-        addurl = f"/api/v1/{self.token}/effects/effectsList"
+        addurl = "/effects/effectsList"
         url = self.baseurl + addurl
         result = requests.get(url)
         return json.loads(result.text)
 
     def set_scene(self, scene):
         scene = scene.replace("\"", "")
-        addurl = f"/api/v1/{self.token}/effects"
+        addurl = "/effects"
         url = self.baseurl + addurl
         headers = {
             "Content-Type": "application/json"
