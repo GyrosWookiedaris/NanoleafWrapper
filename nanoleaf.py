@@ -3,7 +3,7 @@
 import requests
 import json
 
-with open("config.json") as file:
+with open("nl_config.json") as file:
     config = json.load(file)
     if config["ip"] == "ENTER IP HERE":
         print("----------------------------------------------------------")
@@ -22,10 +22,10 @@ with open("config.json") as file:
             "token": token,
         }
 
-        with open("config.json", "w") as file:
+        with open("nl_config.json", "w") as file:
             json.dump(data, file)
 
-        with open("config.json") as file:
+        with open("nl_config.json") as file:
             config = json.load(file)
 
 class Nanoleaf:
